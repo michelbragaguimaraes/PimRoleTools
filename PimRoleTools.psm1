@@ -1,7 +1,7 @@
 function Get-PimRoleStatus {
     [CmdletBinding()]
     param (
-        [string]$RoleName = "Global Administrator"
+        [string]$RoleName = "Helpdesk Administrator"
     )
 
     if (-not (Get-MgContext)) {
@@ -107,4 +107,42 @@ function Show-PimEligibleRoles {
     }
 }
 
-Export-ModuleMember -Function Get-PimRoleStatus, Enable-PimRole, Show-PimEligibleRoles
+function Get-PimRoleAssignment {
+    [CmdletBinding()]
+    param (
+        [string]$RoleName,
+        [switch]$ActiveOnly
+    )
+
+    if (-not (Get-MgContext)) {
+        Connect-MgGraph -Scopes "RoleManagement.Read.Directory", "PrivilegedAccess.Read.AzureAD", "Directory.Read.All"
+    }
+
+    $currentUserId = (Get-MgUser -UserId (Get-MgContext).Account).Id
+
+    $assignments = Get-MgRoleManagementDirectoryRoleAssignment -All -ExpandProperty RoleDefinition `
+        -Filter "principalId eq '$currentUserId'"
+
+    if ($RoleName) {
+        $assignments = $assignments | Where-Object { $_.RoleDefinition.DisplayName -eq $RoleName }
+    }
+
+    if ($ActiveOnly) {
+        $assignments = $assignments | Where-Object { $_.ActivatedUsing -ne $null }
+    }
+
+    foreach ($assignment in $assignments) {
+        $status = if ($assignment.ActivatedUsing) { "Active" } else { "Eligible" }
+        $startTime = if ($assignment.ActivatedUsing) { $assignment.ActivatedUsing.StartDateTime } else { "N/A" }
+        $duration = if ($assignment.ActivatedUsing) { $assignment.ActivatedUsing.Expiration.Duration } else { "N/A" }
+
+        [PSCustomObject]@{
+            RoleName = $assignment.RoleDefinition.DisplayName
+            Status = $status
+            StartTime = $startTime
+            Duration = $duration
+        }
+    }
+}
+
+Export-ModuleMember -Function Get-PimRoleStatus, Enable-PimRole, Show-PimEligibleRoles, Get-PimRoleAssignment

@@ -6,8 +6,9 @@
     CompanyName = 'Independent'
     Description = 'PowerShell module to activate and monitor PIM role assignments using Microsoft Graph.'
     PowerShellVersion = '5.1'
+    CompatiblePSEditions = @('Desktop', 'Core')
     RequiredModules = @('Microsoft.Graph')
-    FunctionsToExport = @('Get-PimRoleStatus', 'Enable-PimRole', 'Show-PimEligibleRoles')
+    FunctionsToExport = @('Get-PimRoleStatus', 'Enable-PimRole', 'Show-PimEligibleRoles', 'Get-PimRoleAssignment')
     CmdletsToExport = @()
     VariablesToExport = @()
     AliasesToExport = @()
