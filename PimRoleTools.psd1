@@ -13,4 +13,9 @@
     VariablesToExport = @()
     AliasesToExport = @()
     PrivateData = @{}
+    ProjectUri = 'https://github.com/michelbragaguimaraes/PimRoleTools'
+    LicenseUri = 'https://opensource.org/licenses/MIT'
+    IconUri = 'https://raw.githubusercontent.com/michelbragaguimaraes/PimRoleTools/main/icon.png'
+    Tags = @('PIM','AzureAD','MicrosoftGraph','Roles','Security','PowerShell','Automation')
+    ReleaseNotes = 'Initial public release. Supports listing, activating, and monitoring Azure AD PIM roles.'
 }
