@@ -18,17 +18,17 @@ Install-Module -Name PimRoleTools
 
 ### Manual Installation
 1. Clone or download this repository.
-2. Import the module in your PowerShell session:
+2. Import the module in your PowerShell 7.1+ session:
    ```powershell
    Import-Module ./PimRoleTools.psm1
    ```
 3. (Optional) Copy to your PowerShell modules directory for auto-loading:
    ```powershell
-   Copy-Item -Path ./PimRoleTools -Destination $env:USERPROFILE\Documents\WindowsPowerShell\Modules\ -Recurse
+   Copy-Item -Path ./PimRoleTools -Destination $env:USERPROFILE\Documents\PowerShell\Modules\ -Recurse
    ```
 
 ## Prerequisites
-- **PowerShell 7+** (Windows PowerShell or PowerShell Core)
+- **PowerShell 7.1 or higher** (Windows, macOS, or Linux)
 - **Microsoft.Graph PowerShell module**
   - Install with: `Install-Module Microsoft.Graph -Scope CurrentUser`
 - **Azure AD PIM enabled** in your tenant
@@ -118,6 +118,8 @@ After submitting an activation, the module will show a spinner animation and wai
   - Run `Connect-MgGraph` manually to re-authenticate.
 - **Module not found?**
   - Make sure you imported the module with the correct path, or copied it to your modules directory.
+- **Not working in Windows PowerShell 5.1?**
+  - This module requires PowerShell 7.1 or higher. Download from https://github.com/PowerShell/PowerShell
 
 ## Examples
 ```powershell
