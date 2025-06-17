@@ -28,7 +28,7 @@ Install-Module -Name PimRoleTools
    ```
 
 ## Prerequisites
-- **PowerShell 5.1 or 7+** (Windows PowerShell or PowerShell Core)
+- **PowerShell 7+** (Windows PowerShell or PowerShell Core)
 - **Microsoft.Graph PowerShell module**
   - Install with: `Install-Module Microsoft.Graph -Scope CurrentUser`
 - **Azure AD PIM enabled** in your tenant
