@@ -1,5 +1,7 @@
 # PimRoleTools
 
+[![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/PimRoleTools?color=blue)](https://www.powershellgallery.com/packages/PimRoleTools)
+
 ## Overview
 PimRoleTools is a PowerShell module for Azure AD Privileged Identity Management (PIM) automation. It allows you to:
 - List all your PIM roles (active, eligible, permanent)
@@ -7,15 +9,14 @@ PimRoleTools is a PowerShell module for Azure AD Privileged Identity Management 
 - See activation status and timing
 - Script and automate PIM operations
 
-## Prerequisites
-- **PowerShell 5.1 or 7+** (Windows PowerShell or PowerShell Core)
-- **Microsoft.Graph PowerShell module**
-  - Install with: `Install-Module Microsoft.Graph -Scope CurrentUser`
-- **Azure AD PIM enabled** in your tenant
-- **Sufficient permissions** to activate roles (must be eligible for PIM roles)
-- **Internet access** (to connect to Microsoft Graph)
-
 ## Installation
+
+### From PowerShell Gallery (Recommended)
+```powershell
+Install-Module -Name PimRoleTools
+```
+
+### Manual Installation
 1. Clone or download this repository.
 2. Import the module in your PowerShell session:
    ```powershell
@@ -25,6 +26,14 @@ PimRoleTools is a PowerShell module for Azure AD Privileged Identity Management 
    ```powershell
    Copy-Item -Path ./PimRoleTools -Destination $env:USERPROFILE\Documents\WindowsPowerShell\Modules\ -Recurse
    ```
+
+## Prerequisites
+- **PowerShell 5.1 or 7+** (Windows PowerShell or PowerShell Core)
+- **Microsoft.Graph PowerShell module**
+  - Install with: `Install-Module Microsoft.Graph -Scope CurrentUser`
+- **Azure AD PIM enabled** in your tenant
+- **Sufficient permissions** to activate roles (must be eligible for PIM roles)
+- **Internet access** (to connect to Microsoft Graph)
 
 ## Authentication
 The module uses Microsoft Graph authentication. The first time you run a command, you will be prompted to log in:
@@ -126,10 +135,17 @@ Show-PimRole -RoleName "Global Administrator"
 ```
 
 ## Uninstallation
-To remove the module, simply delete the `PimRoleTools` folder from your modules directory.
+To remove the module, simply run:
+```powershell
+Uninstall-Module -Name PimRoleTools
+```
+Or delete the `PimRoleTools` folder from your modules directory.
 
 ## License
-MIT (or specify your license here)
+MIT
 
 ## Author
-Michel Braga Guimaraes 
+Michel Braga Guimaraes
+
+## PowerShell Gallery
+[PimRoleTools on PowerShell Gallery](https://www.powershellgallery.com/packages/PimRoleTools) 
