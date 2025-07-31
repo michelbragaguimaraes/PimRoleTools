@@ -39,7 +39,7 @@ Install-Module -Name PimRoleTools -Scope CurrentUser
 ### Manual Installation
 ```powershell
 # Clone the repository
-git clone https://github.com/mguimaraes/PimRoleTools.git
+git clone https://github.com/michelbragaguimaraes/PimRoleTools.git
 
 # Import the module
 Import-Module ./PimRoleTools/PimRoleTools.psm1
@@ -247,7 +247,7 @@ Get-MgContext | Format-List
 - **Module not found**: Install from PowerShell Gallery or check installation path
 
 ## 🤝 Contributing
-Contributions are welcome! Please feel free to submit issues or pull requests on [GitHub](https://github.com/mguimaraes/PimRoleTools).
+Contributions are welcome! Please feel free to submit issues or pull requests on [GitHub](https://github.com/michelbragaguimaraes/PimRoleTools).
 
 ## 📜 License
 MIT License - see LICENSE file for details
@@ -257,8 +257,8 @@ Mike Guimaraes
 
 ## 🔗 Links
 - [PowerShell Gallery](https://www.powershellgallery.com/packages/PimRoleTools)
-- [GitHub Repository](https://github.com/mguimaraes/PimRoleTools)
-- [Report Issues](https://github.com/mguimaraes/PimRoleTools/issues)
+- [GitHub Repository](https://github.com/michelbragaguimaraes/PimRoleTools)
+- [Report Issues](https://github.com/michelbragaguimaraes/PimRoleTools/issues)
 
 ## 📝 Change Log
 
